@@ -30,7 +30,7 @@ The board is designed to run open-source software, leveraging its multi-core arc
 
 - Cortex-A55 Cores: Runs the Ubuntu PoC image 24.04 with ROS2 Jazzy.
 > [!NOTE]
-> This is an open Proof of Concept (POC) deisign and is not officially supported by NXP.
+> This is an open Proof of Concept (POC) design and is not officially supported by NXP.
 > The design is enabled with a Vanilla Ubuntu POC layered on top of existing NXP Yocto build.
 > This means ROS2 main installs via `apt install ros2`.
 >
@@ -83,7 +83,7 @@ A range of software platforms can be deployed on the Cortex-M7 core. The followi
 The MR-NAVQ95 Main Board serves as the central processing and power distribution hub for the platform. It handles the core i.MX95 compute, wide-input power delivery, and routing to all board-to-board and high-speed interfaces. 
 
 For detailed component layouts, pin configurations, and electrical routing, refer to the core system schematics:
-* [`MR-NAVQ95-V2`](Schematic-Rev-A/SPF-95869_A-MAIN.pdf)
+* [MR-NAVQ95-V2](Schematic-Rev-A/SPF-95869_A-MAIN.pdf)
 
 ## Expansion Capabilities
 
