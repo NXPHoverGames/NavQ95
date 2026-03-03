@@ -28,16 +28,29 @@ The heterogeneous vehicle computer is powered by the [NXP i.MX 95](https://www.n
 
 The board is designed to run open-source software, leveraging its multi-core architecture:
 
-- A55 Cores: Runs the Ubuntu PoC image 24.04 with ROS2 Jazzy.
+- Cortex-A55 Cores: Runs the Ubuntu PoC image 24.04 with ROS2 Jazzy.
 > [!NOTE]
-> Please note: This is an open Proof of Concept (POC) deisign and is not officially supported by NXP.
-> The design is enabled with a Vanilla UbuntuPOC layered on top of existing NXP Yocto build.
+> This is an open Proof of Concept (POC) deisign and is not officially supported by NXP.
+> The design is enabled with a Vanilla Ubuntu POC layered on top of existing NXP Yocto build.
 > This means ROS2 main installs via `apt install ros2`.
 >
->The unsupported software repo may be found here:
+>The unsupported software repo can be found here:
 https://github.com/NXP-Robotics/imx-manifest-navq95-private
-- M7 Core: Runs either Zephyr / Cognipilot or Nuttx / PX4.
+- Cortex-M7 Core: Runs either Zephyr / Cognipilot or Nuttx / PX4.
 - Communication: High-speed inter-core communication is facilitated using shared memory / OpenAMP RpMsg.
+
+### Cortex-M7 realtime software
+A range of software platforms can be deployed on the Cortex-M7 core. The following software platforms have been prepared for use with the MR‑NAVQ95:
+- Zephyr
+  - https://www.zephyrproject.org/
+  - https://github.com/CogniPilot/zephyr_boards/
+- Cognipilot Cerebri (Zephyr based)
+  - https://cognipilot.org/
+- NuttX
+  - https://nuttx.apache.org/
+  - https://nuttx.apache.org/docs/latest/platforms/arm/imx9/boards/mr-navq95b/index.html
+- PX4 Autopilot (NuttX based)
+  - https://px4.io/
 
 ## Hardware Specifications
 
@@ -64,21 +77,27 @@ https://github.com/NXP-Robotics/imx-manifest-navq95-private
 * Two PCIe M.2 slots (Type M and Type B).
 * A 10-pin JTAG SWD debugging header.
 
----
+
+## Main Board Schematics
+
+The MR-NAVQ95 Main Board serves as the central processing and power distribution hub for the platform. It handles the core i.MX95 compute, wide-input power delivery, and routing to all board-to-board and high-speed interfaces. 
+
+For detailed component layouts, pin configurations, and electrical routing, refer to the core system schematics:
+* [`MR-NAVQ95-V2`](Schematic-Rev-A/SPF-95869_A-MAIN.pdf)
 
 ## Expansion Capabilities
 
-The system is highly adaptable thanks to support for modular add-on boards:
+Building upon this core Main Board, the system is highly adaptable thanks to support for modular add-on boards:
 
-**Networking Add-ons:** 
-* [MR-NAVQ95E-T1S](Schematic-Rev-B/SPF-96101_B-T1SWITCH.pdf): T1 Switch, utilizing the NXP SJA1110 for six 100BASE-T1 connections and 2x 1000BASE-T1.
+**XGMII-based Networking expansion boards:** 
+* [MR-NAVQ95E-T1S](Schematic-Rev-B/SPF-96101_B-T1SWITCH.pdf): T1 Switch utilizing the NXP SJA1110 for six 100BASE-T1 connections and 2x 1000BASE-T1.
 * [MR-NAVQ95E-T1P](Schematic-Rev-A/SPF-96098_A-T1PHY.pdf): T1 Single Phy setup using the NXP TJA1103.
 
-**Vision / Camera:** 
+**CSI/DSI Vision / Camera expansion board:** 
 * [MR-NAVQ95E-CAM](Schematic-Rev-B/SPF-96100_B-CAM.pdf): A 22-pin Raspberry Pi-style connector expansion board for CSI/DSI interfaces.
 
-**General purpose I/O**
-* [MR-NAVQ95E-IO](Schematic-Rev-B/SPF-96099_B-IO.pdf): Drone & Rover IO:** Uses standard DroneCode connectors for extensive peripheral support:
+**General purpose I/O expansion board:**
+* [MR-NAVQ95E-IO](Schematic-Rev-B/SPF-96099_B-IO.pdf): Drone & Rover IO: Uses standard DroneCode connectors for extensive peripheral support:
     * 3x CAN-FD
     * Bosch BMI088 IMU
     * 8x FlexIO/PWM output
@@ -90,17 +109,5 @@ The system is highly adaptable thanks to support for modular add-on boards:
         * 2x PDM Microphones
         * 2x 1W stereo output
     * 2x UART to USB-C for Serial Console
-
-## M-core realtime software
-A range of software platforms can be deployed on the Cortex-M core. The following software platforms have been prepared for use with the MR‑NAVQ95:
-- Zephyr
-  - https://www.zephyrproject.org/
-- Cognipilot Cerebri (Zephyr based)
-  - https://cognipilot.org/
-- NuttX
-  - https://nuttx.apache.org/
-  - https://nuttx.apache.org/docs/latest/platforms/arm/imx9/boards/mr-navq95b/index.html
-- PX4 Autopilot (NuttX based)
-  - https://px4.io/
 
 Note: NXP and the NXP logo are registered trademarks of NXP B.V.
