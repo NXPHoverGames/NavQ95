@@ -21,7 +21,7 @@ The heterogeneous vehicle computer is powered by the [NXP i.MX 95](https://www.n
 ## AI Capabilities:
 
 - Equipped with an on-chip NXP Neutron NPU.
-- High-bandwidth M.2 PCIe interfaces target up to 2 [NXP Kinara ARA-2 NPUs](https://www.nxp.com/products/ARA240).
+- High-bandwidth M.2 PCIe interfaces target up to 2 [NXP Kinara Ara240 NPUs](https://www.nxp.com/products/ARA240).
 - Supports cloud-based AI via Wifi6 or 5G connectivity
 
 ## Software Stack:
@@ -36,7 +36,7 @@ The board is designed to run open-source software, leveraging its multi-core arc
 >
 >The unsupported software repo can be found here:
 https://github.com/NXP-Robotics/imx-manifest-navq95-private
-- Cortex-M7 Core: Runs either Zephyr / Cognipilot or Nuttx / PX4.
+- Cortex-M7 Core: Runs either Zephyr / CogniPilot or NuttX / PX4.
 - Communication: High-speed inter-core communication is facilitated using shared memory / OpenAMP RpMsg.
 
 ### Cortex-M7 realtime software
@@ -44,33 +44,33 @@ A range of software platforms can be deployed on the Cortex-M7 core. The followi
 - Zephyr
   - https://www.zephyrproject.org/
   - https://github.com/CogniPilot/zephyr_boards/
-- Cognipilot Cerebri (Zephyr based)
-  - https://cognipilot.org/
+- CogniPilot Cerebri (Zephyr based)
+  - https://CogniPilot.org/
 - NuttX
-  - https://nuttx.apache.org/
-  - https://nuttx.apache.org/docs/latest/platforms/arm/imx9/boards/mr-navq95b/index.html
+  - https://NuttX.apache.org/
+  - https://NuttX.apache.org/docs/latest/platforms/arm/imx9/boards/mr-navq95b/index.html
 - PX4 Autopilot (NuttX based)
   - https://px4.io/
 
 ## Hardware Specifications
 
 ### Power and Memory
-* **Input Power:** Supports a voltage range of 9V to 52V, which easily accommodates up to 12S battery configurations.
+* **Input Power:** Supports an operating voltage range of 9V to 52V, with a maximum limit of 60V. This easily accommodates 3S to 12S battery configurations, delivering 60W across the 9-20V (3-7S) range, and stepping up to 125W for the 20-52V (8-12S) range.
 * **RAM:** Up to 16 GB of LPDDR5 memory.
 * **Storage Options:** 64 GB onboard eMMC, an Octal-SPI Flash module, a Micro SD card reader, and PCIe M.2 support for solid-state drives.
 
 ### Connectivity
 * **Standard Ethernet:** One Gigabit RJ45 port supporting Precision Time Protocol (PTP).
-* **Automotive Ethernet:** Both 100BASE-T1 and 1000BAS-T1 ports, also featuring PTP.
+* **Automotive Ethernet:** Both 100BASE-T1 and 1000BASE-T1 ports, also featuring PTP.
 > [!TIP]
 > 100(0)BASE-T1 is Ethernet over single unshielded twisted pair
 * **Wireless Comms:** Powered by the NXP IW612 chip for Wi-Fi, Bluetooth, and Matter support.
 * **Cellular Data:** Includes a SIM slot and an M.2 PCIe interface meant for a cellular modem.
 
 ### Onboard Mobile Robotics Sensors
-* Inertial Measurement Unit (IMU)
-* Magnetometer
-* Barometer
+* TDK ICM-45686 Inertial Measurement Unit (IMU)
+* Bosch BMM350 Magnetometer
+* Bosch BMP581 Barometer
 
 ### Physical Interfaces
 * USB 2.0 and 3.0 ports.
@@ -97,13 +97,13 @@ Building upon this core Main Board, the system is highly adaptable thanks to sup
 * [MR-NAVQ95E-CAM](Schematic-Rev-B/SPF-96100_B-CAM.pdf): A 22-pin Raspberry Pi-style connector expansion board for CSI/DSI interfaces.
 
 **General purpose I/O expansion board:**
-* [MR-NAVQ95E-IO](Schematic-Rev-B/SPF-96099_B-IO.pdf): Drone & Rover IO: Uses standard DroneCode connectors for extensive peripheral support:
+* [MR-NAVQ95E-IO](Schematic-Rev-B/SPF-96099_B-IO.pdf): Drone & Rover IO: Uses standard Dronecode connectors for extensive peripheral support:
     * 3x CAN-FD
     * Bosch BMI088 IMU
     * 8x FlexIO/PWM output
-    * DroneCode JST-GH 10-pin GPS connector
-    * DroneCode JST-GH 6-pin Telemetry connector
-    * DroneCode JST-GH 4-pin I2C connector
+    * Dronecode JST-GH 10-pin GPS connector
+    * Dronecode JST-GH 6-pin Telemetry connector
+    * Dronecode JST-GH 4-pin I2C connector
     * WM8962B Audio codec with:
         * Audio jack
         * 2x PDM Microphones
