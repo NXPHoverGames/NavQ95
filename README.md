@@ -7,9 +7,9 @@ The NavQ95 features a single main board with a small form factor and is designed
 > [!TIP]
 > See [MR-NAVQ95/Mr Solutions MR-MR-NAVQ95-RevB description slides (Public).pdf](<https://github.com/NXP-Robotics/MR-NAVQ95/blob/main/Mr Solutions MR-NavQ95-RevB description slides (Public).pdf>) also for a short overview presentation.
 
-MR-NavQ95 Switch view     |  MR-NavQ95 ARA-2 View
+MR-NavQ95 Top view     |  MR-NavQ95 Side View
 :-------------------------:|:-------------------------:
-![](images/NavQ95B_01.jpg)  |  ![](images/NavQ95B_02.jpg)
+![](images/NAVQ95_TOP.JPG)  |  ![](images/NAVQ95_SIDE2.JPG)
 
 # Core Architecture & AI
 
