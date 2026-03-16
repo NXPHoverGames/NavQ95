@@ -34,8 +34,7 @@ The board is designed to run open-source software, leveraging its multi-core arc
 > The design is enabled with a Vanilla Ubuntu POC layered on top of existing NXP Yocto build.
 > This means ROS2 main installs via `apt install ros2`.
 >
->The unsupported software repo can be found here:
-https://github.com/NXP-Robotics/imx-manifest-navq95-private
+> The unsupported software repo can be found here: https://github.com/NXP-Robotics/imx-manifest-navq95
 - Cortex-M7 Core: Runs either Zephyr / CogniPilot or NuttX / PX4.
 - Communication: High-speed inter-core communication is facilitated using shared memory / OpenAMP RpMsg.
 
